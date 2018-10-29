@@ -1,0 +1,7 @@
+<h1>{{ object.content }}</h1>
+
+<ul>
+{% for sentence in object.translation.all %}
+    <li>{{ sentence.content }}</li>
+{% endfor %}
+</ul>

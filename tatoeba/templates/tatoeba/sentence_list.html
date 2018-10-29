@@ -1,0 +1,13 @@
+<form action="" method="post">
+{% csrf_token %}
+{% for sentence in object_list %}
+    <input type="checkbox" id="sentence_{{ sentence.tatoeba_id }}" name="sentence_{{ sentence.tatoeba_id }}" value="1">
+    <label for="sentence_{{ sentence.tatoeba_id }}">
+        {{ sentence.content }}
+        <a href="{% url "sentence-detail" sentence.pk %}">
+            #
+        </a>
+    </label><br />
+{% endfor %}
+<input type="submit" value="Choisir" />
+</form>
