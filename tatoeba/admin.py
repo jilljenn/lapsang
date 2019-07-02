@@ -1,3 +1,9 @@
 from django.contrib import admin
+from lapsang.models import Game
 
-# Register your models here.
+
+class GameAdmin(admin.ModelAdmin):
+    raw_id_fields = ('sentences',)
+
+
+admin.site.register(Game, GameAdmin)

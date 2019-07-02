@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <form action="" method="post">
 {% csrf_token %}
 {% for sentence in object_list %}
@@ -11,3 +14,4 @@
 {% endfor %}
 <input type="submit" value="Choisir" />
 </form>
+{% endblock %}

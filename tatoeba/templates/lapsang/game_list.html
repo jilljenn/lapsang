@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for game in object_list %}
+    {{ game.id }}
+    <a href="{% url "game-detail" game.pk %}">
+        #
+    </a>
+    <br />
+{% endfor %}
+{% endblock %}

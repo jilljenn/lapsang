@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="game">
+{% for sentence in object.get_play_sentences %}
+    <h1 id="pos_{{ forloop.counter0 }}" class="align-middle mx-auto{% if forloop.counter0 == 0 %} active{% endif %}">
+        {{ sentence.content }}
+    </h1>
+{% endfor %}
+<h1 id="pos_{{ object.nb_sentences }}">Finished!</h1>
+</main>
+
+<!-- <button onclick="next">→</button> -->
+
+<script>
+var c = 0;
+var nbSentences = {{ object.nb_sentences }};
+function next() {
+    if(c <= nbSentences) {
+        document.getElementById("pos_" + c).classList.remove("active");
+        c += 1;
+        document.getElementById("pos_" + c).classList.add("active");
+    }
+}
+</script>
+{% endblock %}

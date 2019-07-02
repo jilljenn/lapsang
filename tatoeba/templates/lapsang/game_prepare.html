@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.pk }} ->{{ lang }}<-</h1>
+
+<form action="" method="post">
+{% csrf_token %}
+<ul>
+{% for sentence in object.get_eng_sentences %}
+    <li>
+        <label for="sentence_{{ sentence.pk }}">
+            {{ sentence.content }}<br />
+            <input name="sentence_{{ sentence.pk }}" id="sentence_{{ sentence.pk }}" type="text" />
+        </label>
+    </li>
+{% endfor %}
+</ul>
+<input type="submit" value="Choisir" />
+</form>
+{% endblock %}
